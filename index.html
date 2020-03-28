@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Encoder</title>
+</head>
+<body>
+	<p>Normal text here</p>
+	<textarea id = "raw" cols = "50" rows = "4" onchange = "encode()"></textarea>
+	<br>
+	<p>Layers of encryption</p>
+	<input id = "iter" type = "number" min = "1" max = "9" value = "3" onchange = "encode()">
+	<br>
+	<p>Encoded text here</p>
+	<textarea id = "encoded" cols = "50" rows = "15" readonly></textarea>
+	<script>
+		var outputStr = "";
+		function encode () {
+			outputStr = document.getElementById("raw").value;
+			for (var i = 0; i < parseInt(document.getElementById("iter").value); i++) {
+				outputStr = btoa(outputStr);
+			}
+			outputStr += btoa(document.getElementById("iter").value);
+			document.getElementById("encoded").value = outputStr;
+		}
+	</script>
+</body>
