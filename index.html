@@ -16,10 +16,11 @@
 		var outputStr = "";
 		function encode () {
 			outputStr = document.getElementById("raw").value;
-			for (var i = 0; i < parseInt(document.getElementById("iter").value); i++) {
+			for (var i = 1; i < parseInt(document.getElementById("iter").value); i++) {
 				outputStr = btoa(outputStr);
 			}
-			outputStr += btoa(document.getElementById("iter").value);
+			outputStr += document.getElementById("iter").value;
+			outputStr = btoa(outputStr)
 			document.getElementById("encoded").value = outputStr;
 		}
 	</script>
